@@ -1,0 +1,85 @@
+Exemplo de uso
+Bem-Vindo ao ChatBot CAESO
+
+Usuario: qual área trabalha o Otávio Santos?
+Bot: Otávio Santos trabalha na área de Marketing.
+
+Usuario: quanto o Carlos Mendes ganha?
+Bot: O salário de Carlos Mendes é R$ 7.200,00.
+
+Usuario: quando a Fernanda Lima entrou na empresa?
+Bot: Fernanda Lima entrou na empresa em 22/01/2021.
+
+🚀 Funcionalidades
+
+Leitura automática de PDF com dados de funcionários
+Respostas em linguagem natural via LLM
+Responde apenas o que foi perguntado (sem informações extras)
+Histórico de conversa mantido durante a sessão
+Funciona com qualquer PDF estruturado de RH
+
+📦 Instalação
+1. Clone o repositório:
+bashgit clone https://github.com/seu-usuario/chatbot-caeso.git
+cd chatbot-caeso
+2. Instale as dependências:
+bashpip install -r requirements.txt
+3. Configure sua chave de API:
+Crie um arquivo .env na raiz do projeto:
+GROQ_API_KEY=sua_chave_aqui
+
+⚠️ Nunca suba sua API key diretamente no código! Use sempre o .env.
+
+4. Adicione seu PDF:
+Coloque o arquivo PDF com os dados dos funcionários na pasta do projeto e atualize o caminho no código:
+pythoncaminho = r'D:\seu-projeto\funcionarios.pdf'
+
+▶️ Como Usar
+bashpython mainGet.py
+Digite sua pergunta sobre qualquer funcionário e o bot responde. Digite x para sair.
+
+📁 Estrutura do Projeto
+chatbot-caeso/
+│
+├── mainGet.py           # Código principal do chatbot
+├── gerar_pdf.py         # Script para gerar PDF de teste com 150 funcionários
+├── funcionarios.pdf     # PDF com os dados (não versionar se for sigiloso!)
+├── requirements.txt     # Dependências
+├── .env                 # Chave de API (não versionar!)
+├── .gitignore           # Ignorar .env e PDF sigiloso
+└── README.md            # Documentação
+
+📄 requirements.txt
+langchain==0.3.0
+langchain-groq==0.2.0
+langchain-community==0.3.0
+pypdf==5.0.0
+python-dotenv
+
+🔑 Como obter a API Key da Groq
+
+Acesse https://console.groq.com
+Crie uma conta gratuita
+Vá em API Keys e gere uma nova chave
+Cole no seu arquivo .env
+
+🤖 Como funciona
+PDF com dados dos funcionários
+        ↓
+PyPDFLoader extrai o texto completo
+        ↓
+Usuário faz pergunta em linguagem natural
+        ↓
+LangChain monta o prompt com o documento + pergunta
+        ↓
+Groq API envia para o LLaMA 3.3 70B
+        ↓
+Bot responde apenas o que foi perguntado
+
+📚 Aprendizados do Projeto
+
+Carregamento de PDFs com PyPDFLoader
+Integração com LLMs via LangChain + Groq
+Uso de ChatPromptTemplate com contexto de documento
+System prompt para controlar o comportamento do modelo
+Boas práticas de segurança com variáveis de ambiente
