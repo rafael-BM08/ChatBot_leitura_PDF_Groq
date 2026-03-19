@@ -28,7 +28,6 @@ bashpip install -r requirements.txt
 Crie um arquivo .env na raiz do projeto:
 GROQ_API_KEY=sua_chave_aqui
 
-⚠️ Nunca suba sua API key diretamente no código! Use sempre o .env.
 
 4. Adicione seu PDF:
 Coloque o arquivo PDF com os dados dos funcionários na pasta do projeto e atualize o caminho no código:
